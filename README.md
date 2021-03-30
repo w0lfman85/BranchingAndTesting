@@ -2,7 +2,7 @@
 To teach branching best practices and QA automation basics
 
 ### Introduction
-//TODO
+TODO: add introduction
 
 ### Using samples
-//TODO
+TODO: add samples
