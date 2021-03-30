@@ -14,7 +14,7 @@ describe('Hamming code testing', function() {
     assert.equal(hamming.encrypt == undefined, true);
   })
 
-  it('encode correctly', function() {
+  it('encode correctly with proper input', function() {
     let dataToEncode = [0,0,0,0];
     let expectedEncoded = [0,0,0,0,0,0,0];
     let encoded = hamming.encode(dataToEncode);
@@ -46,5 +46,42 @@ describe('Hamming code testing', function() {
     for(let i = 0; i < 7; i++) {
       assert.equal(encoded[i], expectedEncoded[i]);
     }
+  })
+
+  it('encode correctly with inproper input', function() {
+    assert.throws(() => {
+      let dataToEncode = [0,0,0,0,0];
+      hamming.encode(dataToEncode);
+      },
+      Error
+    );
+
+    assert.throws(() => {
+      let dataToEncode = [0,0,0];
+      hamming.encode(dataToEncode);
+      },
+      Error
+    );
+
+    assert.throws(() => {
+      let dataToEncode = [0,0,0,2];
+      hamming.encode(dataToEncode);
+      },
+      Error
+    );
+
+    assert.throws(() => {
+      let dataToEncode = [0,0,0,Nan];
+      hamming.encode(dataToEncode);
+      },
+      Error
+    );
+
+    assert.throws(() => {
+      let dataToEncode = [0,0,0,undefined];
+      hamming.encode(dataToEncode);
+      },
+      Error
+    );
   })
 })
