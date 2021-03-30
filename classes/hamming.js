@@ -7,7 +7,7 @@ class HammingCode {
     }
 
     for(let i = 0; i < 4; i++) {
-      if(dataToEncode[i] > 1) {
+      if((dataToEncode[i] > 1)||(dataToEncode[i] == null)||(dataToEncode[i].toString() == 'undefined')) {
         throw Error("HammingCode: encode input must consist of bits");
       }
     }
