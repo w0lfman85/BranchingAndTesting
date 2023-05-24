@@ -34,8 +34,35 @@ class HammingCode {
     return hammingEncoded;
   }
 
-  static decode() {
+  //dataToDecode [i1, i2, i3, i4, i5, i6, i7]
+  static decode(dataToDecode) {
+    if (dataToDecode.length !== 7) {
+      throw Error("HammingCode: decode input must have exactly 7 bits");
+    }
 
+    // Calculation of error checking bits
+    const p1 = dataToDecode[2] ^ dataToDecode[4] ^ dataToDecode[6];
+    const p2 = dataToDecode[2] ^ dataToDecode[5] ^ dataToDecode[6];
+    const p3 = dataToDecode[4] ^ dataToDecode[5] ^ dataToDecode[6];
+
+    // Determining the position of the bit in error (if any)
+    let errorPosition = 0;
+    if (p1 !== dataToDecode[0]) {
+      errorPosition += 1;
+    }
+    if (p2 !== dataToDecode[1]) {
+      errorPosition += 2;
+    }
+    if (p3 !== dataToDecode[3]) {
+      errorPosition += 4;
+    }
+
+    // Error correction (if found)
+    if (errorPosition !== 0) {
+      dataToDecode[errorPosition - 1] = 1 - dataToDecode[errorPosition - 1]; // Changing the value of a bit
+    }
+
+    return [dataToDecode[2], dataToDecode[4], dataToDecode[5], dataToDecode[6]];
   }
 }
 
