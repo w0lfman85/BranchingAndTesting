@@ -1,3 +1,4 @@
 let hamming = require('./classes/hamming.js');
+let huffman = require('./classes/huffman.js');
 
-module.exports = hamming;
+module.exports = {huffman, hamming};

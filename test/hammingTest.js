@@ -1,4 +1,4 @@
-let hamming = require('../index.js');
+let hamming = require('../index.js').hamming;
 let assert = require('chai').assert;
 
 describe('Hamming code testing', function() {
