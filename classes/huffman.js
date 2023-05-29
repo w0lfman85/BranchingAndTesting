@@ -1,4 +1,4 @@
-//Huffman 4->7
+//Huffman
 class HuffmanCode {
     static buildFrequencyTable(data) {
         const frequencyTable = {};
