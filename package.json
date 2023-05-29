@@ -5,6 +5,7 @@
   },
   "scripts" : {
     "test" : "mocha test/test.js",
-    "testHamming" : "mocha test/hammingTest.js"
+    "testHamming" : "mocha test/hammingTest.js",
+    "testHuffman" : "mocha test/huffmanTest.js"
   }
 }
