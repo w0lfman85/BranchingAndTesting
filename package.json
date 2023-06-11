@@ -6,6 +6,10 @@
   "scripts" : {
     "test" : "mocha test/test.js",
     "testHamming" : "mocha test/hammingTest.js",
-    "testHuffman" : "mocha test/huffmanTest.js"
+    "testHuffman" : "mocha test/huffmanTest.js",
+    "testFibonachi" : "mocha test/fibonachiTest.js"
+  },
+  "dependencies": {
+    "node": "^20.2.0"
   }
 }
